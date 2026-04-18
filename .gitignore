@@ -1,0 +1,43 @@
+cat > .gitignore << 'EOF'
+# ==========================================
+# JAVA / SPRING BOOT
+# ==========================================
+backend/target/
+backend/*.class
+backend/.mvn/
+backend/mvnw
+backend/mvnw.cmd
+*.jar
+*.war
+
+# ==========================================
+# NODE / REACT
+# ==========================================
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/.env.local
+frontend/.env.production
+
+# ==========================================
+# BANCO DE DADOS / CREDENCIAIS
+# ==========================================
+*.env
+application-prod.properties
+application-secrets.properties
+
+# ==========================================
+# IDEs
+# ==========================================
+.idea/
+.vscode/settings.json
+*.iml
+.classpath
+.project
+
+# ==========================================
+# SISTEMA OPERACIONAL
+# ==========================================
+.DS_Store
+Thumbs.db
+EOF
