@@ -67,7 +67,7 @@ public class Despesa {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "codigo_familia", nullable = false)
-    private Familia codigoFamilia;
+    private Familia familia;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "codigo_usuario_criacao", nullable = false)

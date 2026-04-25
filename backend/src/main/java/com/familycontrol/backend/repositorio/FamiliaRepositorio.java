@@ -9,7 +9,7 @@ import com.familycontrol.backend.modelo.entidade.Familia;
 
 @Repository
 public interface FamiliaRepositorio extends JpaRepository<Familia, Long> {
-    Optional<Familia> findbyCodigoFamilia(String codigoFamilia);
+    Optional<Familia> findbyCodigoFamilia(Long codigoFamilia);
 
     boolean existisByCodigoFamilia(String codigoFamilia); 
 }

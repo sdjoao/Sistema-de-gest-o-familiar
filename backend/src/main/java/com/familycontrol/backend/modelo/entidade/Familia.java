@@ -36,7 +36,7 @@ public class Familia {
     private String nome;
 
     @Column(nullable = false, unique = true, length = 50, name = "codigo_familia")
-    private String codigoFamilia;
+    private Long codigoFamilia;
 
     @CreationTimestamp
     @Column(name = "criado_em", updatable = false)
