@@ -14,18 +14,18 @@ import com.familycontrol.backend.modelo.entidade.Despesa;
 @Repository
 public interface DespesaRepositorio extends JpaRepository<Despesa, Long> {
     
-    List<Despesa> findByCodigoFamiliaOrderByDataDespesaDesc(Long codigoFamilia);
+    List<Despesa> findByFamiliaCodigoFamiliaOrderByDataDespesaDesc(Long codigoFamilia);
 
-    List<Despesa> findByCodigoFamiliaAndDataDespesaBetweenOrderByDataDespesaDesc(
+    List<Despesa> findByFamiliaCodigoFamiliaAndDataDespesaBetweenOrderByDataDespesaDesc(
         Long CodigoFamilia,
         LocalDate dataInicio,
         LocalDate dataFim
     );
 
-    @Query("SELECT COALESCE(SUM(d.valor), 0 FROM Despesa d " +
-            "WHERE d.codigo_familia = :codigo_familia " +
-            "AND MONTH(d.data_despesa) = :mes " +
-            "AND YEAR (d.data_despesa = :ano ")
+    @Query("SELECT COALESCE(SUM(d.valor), 0) FROM Despesa d " +
+            "WHERE d.familia.codigoFamilia = :codigoFamilia " +
+            "AND MONTH(d.dataDespesa) = :mes " +
+            "AND YEAR (d.dataDespesa) = :ano ")
     BigDecimal somarPorMesEAno(
         @Param("codigoFamilia") Long codigoFamilia,
         @Param("mes") int mes,

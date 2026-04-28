@@ -51,5 +51,7 @@ public class Familia {
 
     @OneToMany(mappedBy = "familia", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Usuario> usuarios;
+
+    @OneToMany(mappedBy = "familia", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Publicacao> publicacoes;
 }

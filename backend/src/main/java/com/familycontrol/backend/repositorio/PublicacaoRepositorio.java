@@ -11,5 +11,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 @Repository
 public interface PublicacaoRepositorio extends JpaRepository<Publicacao, Long> {
     
-    List<Publicacao> findByCodigoFamiliaOrderByCriadoEmDesc(Long codigoFamilia);
+    List<Publicacao> findByFamiliaCodigoFamiliaOrderByCriadoEmDesc(Long codigoFamilia);
 }

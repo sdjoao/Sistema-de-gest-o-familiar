@@ -23,7 +23,7 @@ public class MembroServico {
     private final FamiliaRepositorio familiaRepositorio;
     
     public List<MembroResposta> listarMembrosPorFamilia(Long codigoFamilia){
-        return membroRepositorio.findByCodigoFamiliaOrderByNome(codigoFamilia)
+        return membroRepositorio.findByFamiliaCodigoFamiliaOrderByNome(codigoFamilia)
             .stream()
             .map(MembroResposta::deEntidade)
             .toList();
@@ -41,7 +41,7 @@ public class MembroServico {
     }
 
     public MembroResposta criarMembro(MembroRequisicao dadosDoMembro, Long codigoFamilia){
-        Familia familia = familiaRepositorio.findbyCodigoFamilia(codigoFamilia)
+        Familia familia = familiaRepositorio.findByCodigoFamilia(codigoFamilia)
                             .orElseThrow(() -> new ExcecaoNaoEncontrado("Codigo familia não encontrado."));
 
         Membro membro = new Membro();

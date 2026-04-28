@@ -10,7 +10,7 @@ import com.familycontrol.backend.modelo.entidade.Usuario;
 @Repository
 public interface UsuarioRepositorio extends JpaRepository<Usuario, Long>{
     
-    Optional<Usuario> findbyEmail(String email);
+    Optional<Usuario> findByEmail(String email);
 
-    boolean existisByEmail(String email);
+    boolean existsByEmail(String email);
 }

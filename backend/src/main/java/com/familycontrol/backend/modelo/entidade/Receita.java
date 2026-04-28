@@ -33,7 +33,7 @@ public class Receita {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String codigo_receita;
+    private Long codigo_receita;
 
     @Column(nullable = false, length = 150)
     private String descricao;

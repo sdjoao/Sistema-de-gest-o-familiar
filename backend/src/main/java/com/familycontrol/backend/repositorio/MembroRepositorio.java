@@ -10,9 +10,9 @@ import com.familycontrol.backend.modelo.entidade.Membro;
 @Repository
 public interface MembroRepositorio extends JpaRepository<Membro, Long>{
     
-    List<Membro> findByCodigoFamiliaOrderByNome(Long codigoFamilia);
+    List<Membro> findByFamiliaCodigoFamiliaOrderByNome(Long codigoFamilia);
 
-    boolean existisByNomeAndCodigoFamilia(String nome, Long codigoFamilia);
+    boolean existsByNomeAndFamiliaCodigoFamilia(String nome, Long codigoFamilia);
 
     
 }

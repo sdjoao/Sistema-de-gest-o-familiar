@@ -15,18 +15,18 @@ import com.familycontrol.backend.modelo.entidade.Receita;
 @Repository
 public interface ReceitaRepositorio extends JpaRepository<Receita, Long>{
     
-    List<Despesa> findByCodigoFamiliaOrderByDataRespesaDesc(Long codigoFamilia);
+    List<Despesa> findByFamiliaCodigoFamiliaOrderByDataReceitaDesc(Long codigoFamilia);
 
-    List<Despesa> findByCodigoFamiliaAndDataRespesaBetweenOrderByDataDespesaDesc(
+    List<Despesa> findByFamiliaCodigoFamiliaAndDataReceitaBetweenOrderByDataReceitaDesc(
         Long CodigoFamilia,
         LocalDate dataInicio,
         LocalDate dataFim
     );
 
-    @Query("SELECT COALESCE(SUM(d.valor), 0 FROM Receita r " +
-            "WHERE r.codigo_familia = :codigo_familia " +
-            "AND MONTH(r.data_receita) = :mes " +
-            "AND YEAR (r.data_receita = :ano ")
+    @Query("SELECT COALESCE(SUM(r.valor), 0) FROM Receita r " +
+            "WHERE r.familia.codigoFamilia = :codigoFamilia " +
+            "AND MONTH(r.dataReceita) = :mes " +
+            "AND YEAR (r.dataReceita) = :ano ")
     BigDecimal somarPorMesEAno(
         @Param("codigoFamilia") Long codigoFamilia,
         @Param("mes") int mes,
